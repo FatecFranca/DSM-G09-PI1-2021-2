@@ -134,7 +134,7 @@ article > h1 {
 }
 
 /* Classe cartao-carro */
-.cartao-carro {
+.cartao-sandalia {
   border: 1px solid var(--cor-fundo);
   background-color: var(--cor-fundo);
   width: 300px;
@@ -144,41 +144,41 @@ article > h1 {
 }
 
 /* Regra para link de .cartao-carro */
-.cartao-carro a {
+.cartao-sandalia a {
   text-decoration: none;  
 }
 
-.cartao-carro a div {
+.cartao-sandalia a div {
   transition: 400ms;
 }
 
 /* Regra para o link de .cartao-carro quando o mouse sobrevoa */
-.cartao-carro a:hover div {
+.cartao-sandalia a:hover div {
   filter: brightness(1.2);
   box-shadow: 3px 3px 6px rgba(255, 255, 255, 0.15);
 }
 
 /* Regra para a div interna de .cartao-carro */
-.cartao-carro div {
+.cartao-sandalia div {
   height: 360px;
   border-radius: 16px;
 }
 
 /* Regra para imagens dentro de .cartao-carro */
-.cartao-carro img {
+.cartao-sandalia img {
   width: 100%;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
 
-.cartao-carro h1 {
+.cartao-sandalia h1 {
   margin: 20px;
   font-family: var(--fonte-titulo);
   font-size: 1.75rem;
   color: var(--cor-secun);
 }
 
-.cartao-carro p {
+.cartao-sandalia p {
   color: var(--cor-texto);
   margin: 0 20px;
 }
