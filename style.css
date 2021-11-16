@@ -29,7 +29,7 @@ html {
 }
 header {
   display: flex;
-  justify-content: center;  /* centralização horizontal */
+  justify-content: space-between;  /* centralização horizontal */
   align-items: center;  /* centralização vertical */
   background-color: rgb(176, 165, 187);
   min-height: 50px; /* altura mínima */
@@ -37,7 +37,44 @@ header {
 }
 #img-logo {
   background-color: transparent;
+  margin: 20px;
 }
+
+#social ul {
+  list-style: none;
+  display: flex;
+  margin: 20px;
+}
+
+#social ul li {
+   height: 40px;
+   display: flex;
+   align-items: center;
+}
+
+#social ul li a img {
+  width: 40px;
+  filter: brightness(0.225);
+}
+
+#social ul li a {
+  height:  40px;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  color: var(--cor-fundo);
+  text-decoration: none;
+}
+
+#social ul li img {
+  width: 40px;
+}
+
+#social ul li a span {
+  margin-left: 6px;
+ 
+}
+
 #menu-principal {
   display: flex;
   justify-content: center;  /* centralização horizontal */
@@ -194,17 +231,34 @@ article {
   width: 100%;
 }
 
-/* Regras para tela com largura de até 600px */
-@media screen and (max-width: 600px) {
+/*********************************
+    Regras de Responsividade
+**********************************/
 
-  main {
-    /* muda a direção dos filhos para coluna (vertical) */
-    flex-direction: column;
+/* Dispositivos com tela pequena */
+@media (max-width: 1200px) {
+  
+  #social ul li a span {
+    display: none; /* Não preserva espaço no elemento */
+  }
+    main {
+      flex-direction: column;
   }
 
-  /* section e aside ficam com 100% de largura */
-  section, aside {
-    width: 100%;
-  }
-
+/* Dispositivos (tablets) */
+@media (max-width: 992px) {
+ 
 }
+
+/* Dispositivos (celulares medios) */
+@media (max-width: 768px) {
+  
+}
+
+
+/* Dispositivos (celulares pequenos) */
+@media (max-width: 576px) {
+  
+}
+}
+/* o padrão do nosso CSS é para telas maiores que 1200px */
