@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-/* Variáveis */
+
 :root {
   --cor-prim: #F9D84D;
   --cor-prim-clara: #FFEC9C;
@@ -13,27 +13,25 @@
   --fonte-titulo: 'Playfair Display', serif;
 }
 
-/************* CSS reset **************************/
-* { /* Todos os elementos */
+
+* {
   font-family: var(--fonte-texto);
   padding: 0;
   margin: 0;
-  box-sizing: border-box; /* a borda faz parte das dimensões do elemento */
-  /*background-color: var(--cor-fundo);
-  color: var(--cor-texto);*/
+  box-sizing: border-box; 
 }
-/*************************************************/
+
 html {
   font-size: 16px;
-  scroll-behavior: smooth; /* Rolagem suave */
+  scroll-behavior: smooth;
 }
 header {
   display: flex;
-  justify-content: space-between;  /* centralização horizontal */
-  align-items: center;  /* centralização vertical */
+  justify-content: space-between;  
+  align-items: center;  
   background-color: rgb(176, 165, 187);
-  min-height: 50px; /* altura mínima */
-  flex-wrap: wrap;  /* força a quebra de linhas entre elementos flex */
+  min-height: 50px; 
+  flex-wrap: wrap; 
 }
 #img-logo {
   background-color: transparent;
@@ -77,19 +75,18 @@ header {
 
 #menu-principal {
   display: flex;
-  justify-content: center;  /* centralização horizontal */
-  align-items: center;  /* centralização vertical */
+  justify-content: center;  
+  align-items: center;
   background-color: var(--cor-secun);
-  min-height: 25px; /* altura mínima */
+  min-height: 25px;
   width: 100%;
 }
-#menu-principal ul { /* Afeta o <ul> dentro de #menu-principal */
-  list-style: none; /* Tira a decoração dos itens da lista */
-  display: flex;  /* Container flex - todos os itens filhos na horizontal por padrão */
-}
+#menu-principal ul { 
+  list-style: none; 
+  display: flex;  
 #menu-principal ul li {
   height: 36px;
-  margin: 0 10px; /* 0 topo, fundo; 10px esquerda e direita */
+  margin: 0 10px; 
   display: flex;
 }
 #menu-principal ul li a {
@@ -99,16 +96,12 @@ header {
   display: flex;
   padding: 0 10px;
   color: var(--cor-texto);
-  text-decoration: none; /* Sem sublinhado */
+  text-decoration: none;
   background-color: var(--cor-secun);
-  transition: 300ms; /* Afeta a velocidade dos efeitos do hover */
+  transition: 300ms;
 }
-/* Quando o mouse passa sobre o link do menu */
+
 #menu-principal ul li a:hover {
-  /* Filtro que escurece a cor do item (cor de frente + cor de fundo 
-    brightness < 1: escurece
-    brightness > 1: clareia
-  */
   filter: brightness(1.2);
 }
 
@@ -117,7 +110,6 @@ header {
   position: relative;
 }
 
-/* Input checkbox e o span têm o mesmo tamanho e estão um sobre o outro */
 #menu-contraido input, #menu-contraido span {
   width: 40px;
   height: 40px;
@@ -127,10 +119,8 @@ header {
 }
 
 #menu-contraido input {
-  /* Quanto maior o z-index, mais acima (pensando em camadas) o elemento estará.
-     O padrão do z-index é 0. */
   z-index: 100;
-  opacity: 0;   /* Esconde o checkbox */
+  opacity: 0; 
   display: none;
 }
 
@@ -142,37 +132,36 @@ header {
   background-image: url('img/menu-icon-48x48.png');
   background-size: 40px;
   background-position: center center;
-  cursor: pointer;  /* Cursor de "mãozinha" para links */
+  cursor: pointer;  
   display: none;
 }
 
-/* O seletor ~ seleciona o elemento irmão */
 #menu-contraido input:checked ~ span {
   background-image: url('img/close-icon-48x48.png');
 }
 
 main {
   display: flex;
-  justify-content: center;  /* centralização horizontal */
-  align-items: stretch;  /* filhos com 100% da altura do pai */
-  min-height: 200px; /* altura mínima */
+  justify-content: center;  
+  align-items: stretch; 
+  min-height: 200px; 
   background-color: rgb(197, 162, 72);
 }
 
 footer {
   display: flex;
-  justify-content: space-around;  /* distribui o espaço entre os itens filhos */
-  align-items: center;  /* centralização vertical */
+  justify-content: space-around;  
+  align-items: center;  
   background-color: rgb(211, 211, 202);
-  min-height: 50px; /* altura mínima */
+  min-height: 50px; 
   padding: 20px;
   color: black;
 }
 
-/* Links dentro do footer */
+
 footer a {
   color: black;
-  text-decoration: none; /* sem sublinhado */
+  text-decoration: none; 
 }
 
 footer a:hover {
@@ -181,17 +170,15 @@ footer a:hover {
 
 section {
   display: flex;
-  justify-content: center;  /* centralização horizontal */
-  align-items: center;  /* centralização vertical */
-  flex-direction: column; /* itens filhos em coluna (na vertical) */
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
   background-color: transparent;
   width: 75%;
   margin: 20px;
 }
 
-/* Regra para o título h1 que está dentro de section */
-section > h1 { /* O sinal de > indica que serão atingidos apenas
-  os h1 FILHOS DIRETOS de section */
+  section > h1 { 
   text-align: left;
   width: 100%;
   color: var(--cor-fundo);
@@ -201,7 +188,6 @@ section > h1 { /* O sinal de > indica que serão atingidos apenas
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.4);
 }
 
-/* Regra para os títulos h1 que estão dentro dos articles */
 article > h1 {
   text-align: center;
   width: 100%;
@@ -210,7 +196,6 @@ article > h1 {
   font-size: 1.5rem;
 }
 
-/* Classe cartao-carro */
 .cartao-sandalia {
   border: 1px solid var(--cor-fundo);
   background-color: var(--cor-fundo);
@@ -220,7 +205,6 @@ article > h1 {
   border-radius: 16px;
 }
 
-/* Regra para link de .cartao-carro */
 .cartao-sandalia a {
   text-decoration: none;  
 }
@@ -229,19 +213,16 @@ article > h1 {
   transition: 400ms;
 }
 
-/* Regra para o link de .cartao-carro quando o mouse sobrevoa */
 .cartao-sandalia a:hover div {
   filter: brightness(1.2);
   box-shadow: 3px 3px 6px rgba(255, 255, 255, 0.15);
 }
 
-/* Regra para a div interna de .cartao-carro */
 .cartao-sandalia div {
   height: 360px;
   border-radius: 16px;
 }
 
-/* Regra para imagens dentro de .cartao-carro */
 .cartao-sandalia img {
   width: 100%;
   border-top-left-radius: 16px;
@@ -262,9 +243,9 @@ article > h1 {
 
 article {
   display: flex;
-  justify-content: center;  /* centralização horizontal */
+  justify-content: center;  
   flex-wrap: wrap;
-  align-items: center;  /* centralização vertical */
+  align-items: center; 
   background-color: transparent;
   margin: 5px;
   min-height: 100px;
@@ -335,38 +316,20 @@ article {
   text-decoration: underline;
 }
 
-/*********************************
-    Regras de Responsividade
-**********************************/
-
-/* Computadores com tela pequena */
 @media (max-width: 1200px) {
-  /*body {
-    filter: hue-rotate(45deg);
-  }*/
-
-  /* Esconde o texto das redes sociais */
   #social ul li a span {
-    display: none; /* Não preserva o espaço do elemento */
+    display: none;
   }
-
-  /* Ajusta o flex-direction do main para column para
-    passar o aside para baixo */
   main {
     flex-direction: column;
   }
 
-  /* section e aside passam a ter largura de 100% */
   section, aside {
-    /* Usa a função calc() para descontar os 40px das margens
-      laterais dos elementos e evitar rolagem horizontal */
     width: calc(100% - 40px);
   }
 
-  /* Os anúncios do article ficam na horizontal */
   aside {
     flex-direction: row;
-    /* Faz com que os articles fiquem com a mesma altura */
     align-items: stretch;
   }
 
@@ -375,20 +338,11 @@ article {
   }
 }
 
-/* Dispositivos (tablets) */
 @media (max-width: 992px) {
-  /*body {
-    filter: hue-rotate(90deg);
-  }*/
-  /* POR ENQUANTO não necessita de ajuste */
+  
 }
 
-/* Dispositivos (celulares) médios */
 @media (max-width: 768px) {
-  /*body {
-    filter: hue-rotate(135deg);
-  }*/
-
   #menu-principal {
     min-height: 56px;
     padding: 0;
@@ -401,13 +355,13 @@ article {
   }
 
   #menu-contraido input, #menu-contraido span {
-    display: block; /* Reexibe o botão do menu */
+    display: block; 
     left: 20px;
     top: -38px;
   }
 
   #menu-contraido ul {
-    display: none;    /* Esconder o menu */
+    display: none;    
     margin-top: 30px;
   }
 
@@ -422,17 +376,15 @@ article {
   }
 
   #menu-contraido input:checked ~ ul {
-    display: block; /* Reexibe o menu quando o checkbox for marcado */
+    display: block; 
   }
 
   #menu-contraido input:checked,  #menu-contraido input:checked ~ span {
     top: -30px;
   }
 
-  /* Os anúncios do article voltam a ficar na vertical */
   aside {
     flex-direction: column;
-    /* "Desliga" o stretch do breakpoint anterior */
     align-items: flex-start;
   }
 
@@ -441,13 +393,8 @@ article {
   }
 
 
-/* Dispositivos (celulares) pequenos */
 @media (max-width: 576px) {
-  /*body {
-    filter: hue-rotate(180deg);
-  }*/
-
-  /* Empilha os elementos do header */
+  
   header {
     flex-direction: column;
   }
