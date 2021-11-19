@@ -4,9 +4,9 @@
 :root {
   --cor-prim: #F9D84D;
   --cor-prim-clara: #FFEC9C;
-  --cor-secun: #F94D58;
-  --cor-secun-clara: #FD9CA3;
-  --cor-fundo: #333333;
+  --cor-secun: #4034f1;
+  --cor-secun-clara: #2b0b0d;
+  --cor-fundo: #4e32eb;
   --cor-fundo-clara: #555555;
   --cor-texto: #EEEEEE;
   --fonte-texto: 'IBM Plex Sans', sans-serif;
@@ -111,6 +111,46 @@ header {
   */
   filter: brightness(1.2);
 }
+
+#menu-contraido {
+  display: inline-block;
+  position: relative;
+}
+
+/* Input checkbox e o span têm o mesmo tamanho e estão um sobre o outro */
+#menu-contraido input, #menu-contraido span {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#menu-contraido input {
+  /* Quanto maior o z-index, mais acima (pensando em camadas) o elemento estará.
+     O padrão do z-index é 0. */
+  z-index: 100;
+  opacity: 0;   /* Esconde o checkbox */
+  display: none;
+}
+
+#menu-contraido span {
+  display: block;
+  background-color: var(--cor-prim);
+  border-radius: 4px;
+  border: 2px solid var(--cor-texto);
+  background-image: url('img/menu-icon-48x48.png');
+  background-size: 40px;
+  background-position: center center;
+  cursor: pointer;  /* Cursor de "mãozinha" para links */
+  display: none;
+}
+
+/* O seletor ~ seleciona o elemento irmão */
+#menu-contraido input:checked ~ span {
+  background-image: url('img/close-icon-48x48.png');
+}
+
 main {
   display: flex;
   justify-content: center;  /* centralização horizontal */
@@ -212,7 +252,7 @@ article > h1 {
   margin: 20px;
   font-family: var(--fonte-titulo);
   font-size: 1.75rem;
-  color: var(--cor-secun);
+  color: black;
 }
 
 .cartao-sandalia p {
@@ -231,34 +271,185 @@ article {
   width: 100%;
 }
 
+
+.pagina-interna {
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+}
+
+.pagina-interna figure {
+  background-color: var(--cor-fundo);
+  padding: 20px;
+  border-radius: 16px;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.pagina-interna figure img {
+  width: 100%;
+  max-width: 800px;
+}
+
+.pagina-interna figure figcaption {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  text-align: center;
+  color: var(--cor-texto);
+  text-shadow: 1px 1px 2px var(--cor-fundo-clara);
+  padding: 8px 8px 0 8px;
+}
+
+.pagina-interna p {
+  text-align: justify;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.pagina-interna section h2 {
+  text-align: left;
+  width: 100%;
+  color: var(--cor-fundo);
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-size: 1.5rem;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.pagina-interna section h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 2.5rem;
+  color: var(--cor-secun-clara);
+  font-weight: bold;
+  text-align: left;  
+}
+
+.pagina-interna a {
+  color: var(--cor-prim-clara);
+  text-decoration: none;
+}
+
+.pagina-interna a:hover {
+  color: var(--cor-prim);
+  text-decoration: underline;
+}
+
 /*********************************
     Regras de Responsividade
 **********************************/
 
-/* Dispositivos com tela pequena */
+/* Computadores com tela pequena */
 @media (max-width: 1200px) {
-  
+  /*body {
+    filter: hue-rotate(45deg);
+  }*/
+
+  /* Esconde o texto das redes sociais */
   #social ul li a span {
-    display: none; /* Não preserva espaço no elemento */
+    display: none; /* Não preserva o espaço do elemento */
   }
-    main {
-      flex-direction: column;
+
+  /* Ajusta o flex-direction do main para column para
+    passar o aside para baixo */
+  main {
+    flex-direction: column;
   }
+
+  /* section e aside passam a ter largura de 100% */
+  section, aside {
+    /* Usa a função calc() para descontar os 40px das margens
+      laterais dos elementos e evitar rolagem horizontal */
+    width: calc(100% - 40px);
+  }
+
+  /* Os anúncios do article ficam na horizontal */
+  aside {
+    flex-direction: row;
+    /* Faz com que os articles fiquem com a mesma altura */
+    align-items: stretch;
+  }
+
+  aside article {
+    margin: 0 30px;
+  }
+}
 
 /* Dispositivos (tablets) */
 @media (max-width: 992px) {
- 
+  /*body {
+    filter: hue-rotate(90deg);
+  }*/
+  /* POR ENQUANTO não necessita de ajuste */
 }
 
-/* Dispositivos (celulares medios) */
+/* Dispositivos (celulares) médios */
 @media (max-width: 768px) {
-  
-}
+  /*body {
+    filter: hue-rotate(135deg);
+  }*/
+
+  #menu-principal {
+    min-height: 56px;
+    padding: 0;
+    margin-top: 0;
+  }
+
+  #menu-contraido {
+    margin-top: 40px;
+    width: 100%;
+  }
+
+  #menu-contraido input, #menu-contraido span {
+    display: block; /* Reexibe o botão do menu */
+    left: 20px;
+    top: -38px;
+  }
+
+  #menu-contraido ul {
+    display: none;    /* Esconder o menu */
+    margin-top: 30px;
+  }
+
+  #menu-contraido ul li {
+    display: block;
+    margin: 6px 0;
+  }
+
+  #menu-contraido ul li a {
+    width: 100%;
+    display: flex;
+  }
+
+  #menu-contraido input:checked ~ ul {
+    display: block; /* Reexibe o menu quando o checkbox for marcado */
+  }
+
+  #menu-contraido input:checked,  #menu-contraido input:checked ~ span {
+    top: -30px;
+  }
+
+  /* Os anúncios do article voltam a ficar na vertical */
+  aside {
+    flex-direction: column;
+    /* "Desliga" o stretch do breakpoint anterior */
+    align-items: flex-start;
+  }
+
+  aside article {
+    margin: 30px 0;
+  }
 
 
-/* Dispositivos (celulares pequenos) */
+/* Dispositivos (celulares) pequenos */
 @media (max-width: 576px) {
-  
+  /*body {
+    filter: hue-rotate(180deg);
+  }*/
+
+  /* Empilha os elementos do header */
+  header {
+    flex-direction: column;
+  }
 }
-}
-/* o padrão do nosso CSS é para telas maiores que 1200px */
+
