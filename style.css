@@ -3,11 +3,11 @@
 :root {
   --cor-prim: #F9D84D;
   --cor-prim-clara: #FFEC9C;
-  --cor-secun: #4034f1;
+  --cor-secun: #766eeb;
   --cor-secun-clara: #2b0b0d;
-  --cor-fundo: #4e32eb;
+  --cor-fundo: #634fd4;
   --cor-fundo-clara: #555555;
-  --cor-texto: #EEEEEE;
+  --cor-texto: #110308;
   --fonte-texto: 'IBM Plex Sans', sans-serif;
   --fonte-titulo: 'Playfair Display', serif;
 }
