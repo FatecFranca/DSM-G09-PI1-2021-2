@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-
 :root {
   --cor-prim: #F9D84D;
   --cor-prim-clara: #FFEC9C;
@@ -84,6 +83,8 @@ header {
 #menu-principal ul { 
   list-style: none; 
   display: flex;  
+} 
+  
 #menu-principal ul li {
   height: 36px;
   margin: 0 10px; 
